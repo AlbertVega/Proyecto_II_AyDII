@@ -1,3 +1,4 @@
-/home/albert/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/Checkers.dir
-/home/albert/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/albert/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/albert/Documentos/GitHub/checkers/cmake-build-debug/CMakeFiles/Checkers.dir
+/home/albert/Documentos/GitHub/checkers/cmake-build-debug/CMakeFiles/ArduinoV.dir
+/home/albert/Documentos/GitHub/checkers/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/albert/Documentos/GitHub/checkers/cmake-build-debug/CMakeFiles/rebuild_cache.dir

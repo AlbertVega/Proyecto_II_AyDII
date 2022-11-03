@@ -1,4 +1,14 @@
 # ninja log v5
-0	537	1666050563925923384	CMakeFiles/untitled1.dir/main.cpp.o	1b009a2fe4b45767
-0	533	1666051733840905978	CMakeFiles/Checkers.dir/main.cpp.o	496ddc24ff59e601
-534	639	1666051733948908970	Checkers	2c89d83e5d7d2b2d
+1244	1975	1667264435011358381	CMakeFiles/Checkers.dir/src/Square.cpp.o	eafd2323aaafd5e9
+2	831	1667433330166893280	CMakeFiles/Checkers.dir/src/Checkerboard.cpp.o	4fc30cce7acba13c
+318	427	1667436094711202201	ArduinoV	ea8ce9041311b549
+2	1193	1667437310095001203	CMakeFiles/Checkers.dir/src/Moveable.cpp.o	cf2cb3bcea67dcf6
+1	318	1667436094603203607	CMakeFiles/ArduinoV.dir/Arduino/Arduino.cpp.o	1d7a93250f4aa8b4
+625	777	1667438519730371477	Checkers	9a69573dac6d111f
+3	624	1667438519578367367	CMakeFiles/Checkers.dir/src/AI.cpp.o	bbdd80e2bc9943ef
+3	1264	1667436100819123143	CMakeFiles/Checkers.dir/src/CheckerGame.cpp.o	f816aa50b38e96f9
+1170	2099	1667264435135367991	CMakeFiles/Checkers.dir/src/SoundManager.cpp.o	efc2d11ea71f0232
+3	569	1667435234463084020	CMakeFiles/Checkers.dir/src/Main.cpp.o	d83bf6dd755ffa83
+1	964	1667264433999279877	CMakeFiles/Checkers.dir/src/Checkerpiece.cpp.o	96f0ea5843fb01fa
+1	1137	1667434326186940588	CMakeFiles/Checkers.dir/src/Checkers.cpp.o	6481214cdc97adfd
+983	2008	1667264435047361170	CMakeFiles/Checkers.dir/src/Player.cpp.o	297efd53171840c7
