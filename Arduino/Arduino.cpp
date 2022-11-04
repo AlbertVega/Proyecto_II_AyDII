@@ -1,4 +1,3 @@
-#include "Arduino.h"
 
 #include <string>
 #include <cstdio>
@@ -12,35 +11,32 @@
 #include <unistd.h> // write(), read(), close()
 using namespace std;
 
-string Dato;
+char Dato;
+vector<char> Datos;
 
-int main(){
+char readData(){
     struct termios tty{};
-
     int serialPort = open("/dev/ttyACM0", O_RDWR);
-    if (serialPort < 0) {
-        std::cout << "Error while opening device... " << "errno = " << errno << std::endl;
-        perror("Something went wrong with open()");
-        exit(1);
-    }
 
     cfsetspeed(&tty, B9600);
 
-
-    char readBuffer[254];
-
-
-    for(int i=0; i<100; i++){
-        int numBytes = int(read(serialPort, &readBuffer, sizeof(readBuffer)));
-
-
-        if (numBytes < 0){
-            printf("Error reading: %s", strerror(errno));
-        }
-        Dato = readBuffer;
-        cout << "El dato es: "<<Dato<<endl;
+    if (serialPort < 0) {
+        -1;
     }
+    char buffer;
+    int n = read(serialPort, &buffer, sizeof(char));
 
     close(serialPort);
-    return 0;
+    return buffer;
+}
+
+int main(){
+    for (int i=0; i<2;i++){
+        Dato = readData();
+        Datos.push_back(Dato);
+    }
+
+    for(int j=0; j<Datos.size(); j++){
+        cout<<Datos[j];
+    }
 }

@@ -1,4 +1,4 @@
-# Install script for directory: /home/albert/Documentos/GitHub/checkers
+# Install script for directory: /home/albert/Documentos/GitHub/Proyecto_II_AyDII
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/albert/Documentos/GitHub/checkers/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

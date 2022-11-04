@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/albert/Documentos/GitHub/checkers/cmake-build-debug"
+			"value" : "/home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/albert/Documentos/GitHub/checkers"
+			"value" : "/home/albert/Documentos/GitHub/Proyecto_II_AyDII"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -995,7 +995,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/albert/Documentos/GitHub/checkers/cmake-build-debug"
+			"value" : "/home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug"
 		},
 		{
 			"name" : "Checkers_IS_TOP_LEVEL",
@@ -1019,7 +1019,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/albert/Documentos/GitHub/checkers"
+			"value" : "/home/albert/Documentos/GitHub/Proyecto_II_AyDII"
 		},
 		{
 			"name" : "SFML_AUDIO_LIBRARY",

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/albert/Documentos/GitHub/checkers/cmake-build-debug/
+cmake_ninja_workdir = /home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target Checkers
 
@@ -49,65 +49,85 @@ cmake_ninja_workdir = /home/albert/Documentos/GitHub/checkers/cmake-build-debug/
 
 build cmake_object_order_depends_target_Checkers: phony || CMakeFiles/Checkers.dir
 
-build CMakeFiles/Checkers.dir/src/AI.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/AI.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/AI.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/AI.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/AI.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/CheckerGame.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/CheckerGame.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/CheckerGame.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/CheckerGame.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/CheckerGame.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Checkerboard.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Checkerboard.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Checkerboard.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Checkerboard.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Checkerboard.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Checkerpiece.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Checkerpiece.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Checkerpiece.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Checkerpiece.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Checkerpiece.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Checkers.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Checkers.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Checkers.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Checkers.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Checkers.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Main.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Main.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Main.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Main.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Main.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Moveable.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Moveable.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Moveable.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Moveable.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Moveable.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Player.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Player.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Player.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Player.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Player.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/SoundManager.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/SoundManager.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/SoundManager.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/SoundManager.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/SoundManager.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
-build CMakeFiles/Checkers.dir/src/Square.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/src/Square.cpp || cmake_object_order_depends_target_Checkers
+build CMakeFiles/Checkers.dir/src/Square.cpp.o: CXX_COMPILER__Checkers_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/src/Square.cpp || cmake_object_order_depends_target_Checkers
   DEP_FILE = CMakeFiles/Checkers.dir/src/Square.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/Checkers.dir
   OBJECT_FILE_DIR = CMakeFiles/Checkers.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
+  TARGET_PDB = Checkers.pdb
 
 
 # =============================================================================
@@ -124,8 +144,9 @@ build Checkers: CXX_EXECUTABLE_LINKER__Checkers_RelWithDebInfo CMakeFiles/Checke
   OBJECT_DIR = CMakeFiles/Checkers.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = CMakeFiles/Checkers.dir/
   TARGET_FILE = Checkers
-  TARGET_PDB = Checkers.dbg
+  TARGET_PDB = Checkers.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target ArduinoV
@@ -136,11 +157,13 @@ build Checkers: CXX_EXECUTABLE_LINKER__Checkers_RelWithDebInfo CMakeFiles/Checke
 
 build cmake_object_order_depends_target_ArduinoV: phony || CMakeFiles/ArduinoV.dir
 
-build CMakeFiles/ArduinoV.dir/Arduino/Arduino.cpp.o: CXX_COMPILER__ArduinoV_RelWithDebInfo /home/albert/Documentos/GitHub/checkers/Arduino/Arduino.cpp || cmake_object_order_depends_target_ArduinoV
+build CMakeFiles/ArduinoV.dir/Arduino/Arduino.cpp.o: CXX_COMPILER__ArduinoV_RelWithDebInfo /home/albert/Documentos/GitHub/Proyecto_II_AyDII/Arduino/Arduino.cpp || cmake_object_order_depends_target_ArduinoV
   DEP_FILE = CMakeFiles/ArduinoV.dir/Arduino/Arduino.cpp.o.d
   FLAGS = -O2 -g -DNDEBUG -std=gnu++11
   OBJECT_DIR = CMakeFiles/ArduinoV.dir
   OBJECT_FILE_DIR = CMakeFiles/ArduinoV.dir/Arduino
+  TARGET_COMPILE_PDB = CMakeFiles/ArduinoV.dir/
+  TARGET_PDB = ArduinoV.pdb
 
 
 # =============================================================================
@@ -156,15 +179,16 @@ build ArduinoV: CXX_EXECUTABLE_LINKER__ArduinoV_RelWithDebInfo CMakeFiles/Arduin
   OBJECT_DIR = CMakeFiles/ArduinoV.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = CMakeFiles/ArduinoV.dir/
   TARGET_FILE = ArduinoV
-  TARGET_PDB = ArduinoV.dbg
+  TARGET_PDB = ArduinoV.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/albert/Documentos/GitHub/checkers/cmake-build-debug && /snap/clion/209/bin/cmake/linux/bin/ccmake -S/home/albert/Documentos/GitHub/checkers -B/home/albert/Documentos/GitHub/checkers/cmake-build-debug
+  COMMAND = cd /home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug && /snap/clion/209/bin/cmake/linux/bin/ccmake -S/home/albert/Documentos/GitHub/Proyecto_II_AyDII -B/home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -176,7 +200,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/albert/Documentos/GitHub/checkers/cmake-build-debug && /snap/clion/209/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/albert/Documentos/GitHub/checkers -B/home/albert/Documentos/GitHub/checkers/cmake-build-debug
+  COMMAND = cd /home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug && /snap/clion/209/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/albert/Documentos/GitHub/Proyecto_II_AyDII -B/home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -192,7 +216,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /home/albert/Documentos/GitHub/checkers/cmake-build-debug
+# Folder: /home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug
 
 build all: phony Checkers ArduinoV
 
@@ -208,14 +232,14 @@ build all: phony Checkers ArduinoV
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake_modules/FindSFML.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake_modules/FindSFML.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXCompiler.cmake.in /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXCompilerABI.cpp /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCompilerIdDetection.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerId.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineSystem.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeFindBinUtils.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystem.cmake.in /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCXXCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCompilerCommon.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Internal/FeatureTesting.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../cmake_modules/FindSFML.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../cmake_modules/FindSFML.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXCompiler.cmake.in /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXCompilerABI.cpp /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCompilerIdDetection.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerId.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineSystem.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeFindBinUtils.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystem.cmake.in /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCXXCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCompilerCommon.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Internal/FeatureTesting.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /snap/clion/209/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################

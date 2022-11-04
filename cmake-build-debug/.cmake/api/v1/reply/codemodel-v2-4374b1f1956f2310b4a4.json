@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/albert/Documentos/GitHub/checkers/cmake-build-debug",
-		"source" : "/home/albert/Documentos/GitHub/checkers"
+		"build" : "/home/albert/Documentos/GitHub/Proyecto_II_AyDII/cmake-build-debug",
+		"source" : "/home/albert/Documentos/GitHub/Proyecto_II_AyDII"
 	},
 	"version" : 
 	{
