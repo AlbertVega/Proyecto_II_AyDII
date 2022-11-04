@@ -1,14 +1,49 @@
 #include "CheckerGame.hpp"
-
+#include <string>
+#include <cstdio>
+#include <iostream>
+#include <cstring>
+// Linux headers
+#include <vector>
+#include <fcntl.h> // Contains file controls like O_RDWR
+#include <cerrno> // Error integer and strerror() function
+#include <termios.h> // Contains POSIX terminal control definitions
+#include <unistd.h> // write(), read(), close()
 
 using std::cerr;
 using std::cout;
 using std::endl;
 using std::string;
 using std::ostringstream;
+using namespace std;
 
 sf::Time CheckerGame::timeElapsed;
 int CheckerGame::winner = 0; // no winner at initialization
+
+char Dato;
+vector<char> Datos;
+bool IsSelecting;
+/*
+ * CLASS FOR THE KEYPAD ENTRY
+ */
+
+char readData(){
+
+    struct termios tty{};
+    int serialPort = open("/dev/ttyACM0", O_RDWR);
+
+    cfsetspeed(&tty, B9600);
+
+    if (serialPort < 0) {
+        -1;
+    }
+
+    char buffer;
+    int n = read(serialPort, &buffer, sizeof(char));
+
+    close(serialPort);
+    return buffer;
+}
 
 CheckerGame::CheckerGame(sf::RenderWindow& window, const bool& isHuman1, const bool& isHuman2)
 {
@@ -157,249 +192,263 @@ void CheckerGame::gameLoop(sf::RenderWindow& window, sf::Event& event)
 				std::cout << std::endl << "Terminating the game, returning to Main Menu." << std::endl;
 				isPlaying = false;
 			}
-			else if (event.type == sf::Event::MouseButtonPressed) // handles game movements
+			else if (event.type == sf::Event::KeyPressed) // handles game movements
 			{
-				if(event.mouseButton.button == sf::Mouse::Left) // select a checker to move
-				{
-					if(selecting) // player is selecting a checker to move
-					{
-						// get the coordinates from where the user clicked
-						currentX = event.mouseButton.x;
-						currentY = event.mouseButton.y;
-						currentSquare = checkerboard->findSquare(currentX, currentY);
-						/* The code for both players selection validation is symmetric, even though only player 1 has comments on the code. */
+                if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::S)) {
+                    if (selecting) // player is selecting a checker to move
+                    {
+                        cout << "hola";
+                        for (int i = 0; i < 2; i++) {
+                            Dato = readData();
+                            Datos.push_back(Dato);
+                        }
+                        // get the coordinates from where the user clicked
+
+                        currentX = (int(Datos[0])-48)*75;
+                        currentY = (int(Datos[1])-48)*75;
+                        Datos.clear();
+                        cout << " Se leyó en x: " << currentX<<endl;
+                        cout << " Se leyó en y: " << currentY<<endl;
+                        currentSquare = checkerboard->findSquare(currentX, currentY);
+                        cout<< currentSquare->getRow();
+                        cout<< currentSquare->getCol();
+                        /* The code for both players selection validation is symmetric, even though only player 1 has comments on the code. */
 /********************************************************** PLAYER SELECTING ********************************************************************************/
-						if(currentSquare != nullptr && currentSquare->getOccupied()) // validates selection
-						{ 
-							if(p1->getTurn()) // p1's turn 
-							{
-								currentIndex = p1->findCheckerIndex(currentSquare); 
-								if(currentIndex != -1 && currentIndex < p1->getCounter())
-								{
-									printChecker(p1->getChecker(currentIndex), "SELECTED");
-									// first check if current checker is jumping
-									if(Moveable::hasJump(p1->getChecker(currentIndex), p2->getCheckersVector(), checkerboard)) 
-									{
-										// current checker has a jump so we know it's a valid selection
-										selecting = false;
-									}
-									else
-									{
-										if(playerHasToJump(p1, p2))
-											selecting = true; // player has a jump, force the player to select another checker
-										else
-											selecting = false; // no available jumps, player is ready to move their selected checker
-									}
-								}
-								else
-									selecting = true; // keep selecting (checker wasn't found, probably an error)
-							}
-							else // p2's turn
-							{
-								currentIndex = p2->findCheckerIndex(currentSquare); 
-								if(currentIndex != -1 && currentIndex < p2->getCounter())
-								{
-									printChecker(p2->getChecker(currentIndex), "SELECTED");
-									if(Moveable::hasJump(p2->getChecker(currentIndex), p1->getCheckersVector(), checkerboard)) 
-									{
-										selecting = false;
-									}
-									else
-									{
-										if(playerHasToJump(p2, p1))
-											selecting = true; // player has to jump, force the player to select another checker
-										else
-											selecting = false; // player is ready to move their selected checker
-									}
-								}
-								else
-									selecting = true; // keep selecting (checker wasn't found)
-							}
-						}
-						else // keep selecting, user selected an empty square 
-							selecting = true;
-/**************************************************** END OF PLAYERS SELECTING. *****************************************************************************/	
-					}
-					else if(!selecting) // a checkerpiece is moving or jumping
-					{
-						checkDoubleJump = false;
-						/* Both players will have their movements analyzed to determine if it is a jump, movement, and so forth.
-							The actual code for each player is symmetric, even though only player 1 has comments. */
-						futureX = event.mouseButton.x;
-						futureY = event.mouseButton.y;
-						futureSquare = checkerboard->findSquare(futureX, futureY); // the square that the player wants to move to
-						generalDirection = Moveable::findGeneralDirection(currentSquare, futureSquare); // finds the general direction (in degrees) with respect to future square selected
-						std::cout << "Moving in the general Direction of: " << generalDirection << std::endl;
-						if(generalDirection == -1)
-						{
-							std::cout << "Moving nowhere (no turn change). Picking another checker to move." << std::endl;
-							tempSquare = nullptr;
-						}
-						else if(futureSquare != nullptr)
-						{
-							if(futureSquare->getOccupied()) // future square is occupied, so we might be jumping over a checker
-								tempSquare = checkerboard->findJumpOntoSquare(futureSquare, generalDirection);
-							else // futureSquare unnoccupied, Case 1) could be selecting the square to land on after jumping, or Case 2) simply moving
-								tempSquare = checkerboard->findIntermSquare(futureSquare, generalDirection);
-						}
-						else
-							std::cout << "The Future Square was not found." << std::endl;
+                        if (currentSquare != nullptr && currentSquare->getOccupied()) // validates selection
+                        {
+                            if (p1->getTurn()) // p1's turn
+                            {
+                                currentIndex = p1->findCheckerIndex(currentSquare);
+                                if (currentIndex != -1 && currentIndex < p1->getCounter()) {
+                                    printChecker(p1->getChecker(currentIndex), "SELECTED");
+                                    // first check if current checker is jumping
+                                    if (Moveable::hasJump(p1->getChecker(currentIndex), p2->getCheckersVector(),
+                                                          checkerboard)) {
+                                        // current checker has a jump so we know it's a valid selection
+                                        selecting = false;
+                                    } else {
+                                        if (playerHasToJump(p1, p2))
+                                            selecting = true; // player has a jump, force the player to select another checker
+                                        else
+                                            selecting = false; // no available jumps, player is ready to move their selected checker
+                                    }
+                                } else
+                                    selecting = true; // keep selecting (checker wasn't found, probably an error)
+                            } else // p2's turn
+                            {
+                                currentIndex = p2->findCheckerIndex(currentSquare);
+                                if (currentIndex != -1 && currentIndex < p2->getCounter()) {
+                                    printChecker(p2->getChecker(currentIndex), "SELECTED");
+                                    if (Moveable::hasJump(p2->getChecker(currentIndex), p1->getCheckersVector(),
+                                                          checkerboard)) {
+                                        selecting = false;
+                                    } else {
+                                        if (playerHasToJump(p2, p1))
+                                            selecting = true; // player has to jump, force the player to select another checker
+                                        else
+                                            selecting = false; // player is ready to move their selected checker
+                                    }
+                                } else
+                                    selecting = true; // keep selecting (checker wasn't found)
+                            }
+                        } else // keep selecting, user selected an empty square
+                            selecting = true;
+/**************************************************** END OF PLAYERS SELECTING. *****************************************************************************/
+                    } else if (!selecting && (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::S)) // a checkerpiece is moving or jumping
+                    {
+                        checkDoubleJump = false;
+                        /* Both players will have their movements analyzed to determine if it is a jump, movement, and so forth.
+                            The actual code for each player is symmetric, even though only player 1 has comments. */
+                        cout << "hola";
+                        for (int i = 0; i < 2; i++) {
+                            Dato = readData();
+                            Datos.push_back(Dato);
+                        }
+                        futureX = (int(Datos[0])-48)*75;
+                        futureY = (int(Datos[1])-48)*75;
+                        cout<<to_string(futureY);
+                        cout<<to_string(futureX);
+                        Datos.clear();
+
+                        cout << " Se avanzará en x: " << futureX;
+                        cout << " Se avanzará en y: " << futureY;
+
+                        futureSquare = checkerboard->findSquare(futureX,
+                                                                futureY); // the square that the player wants to move to
+                        generalDirection = Moveable::findGeneralDirection(currentSquare,
+                                                                          futureSquare); // finds the general direction (in degrees) with respect to future square selected
+                        std::cout << "Moving in the general Direction of: " << generalDirection << std::endl;
+                        if (generalDirection == -1) {
+                            std::cout << "Moving nowhere (no turn change). Picking another checker to move."
+                                      << std::endl;
+                            tempSquare = nullptr;
+                        } else if (futureSquare != nullptr) {
+                            if (futureSquare->getOccupied()) // future square is occupied, so we might be jumping over a checker
+                                tempSquare = checkerboard->findJumpOntoSquare(futureSquare, generalDirection);
+                            else // futureSquare unnoccupied, Case 1) could be selecting the square to land on after jumping, or Case 2) simply moving
+                                tempSquare = checkerboard->findIntermSquare(futureSquare, generalDirection);
+                        } else
+                            std::cout << "The Future Square was not found." << std::endl;
 
 /************************************************************* CODE FOR BOTH PLAYERS MOVEMENTS. *******************************************************/
-						if(tempSquare != nullptr) // the only way tempSquare is null is when generalDirection == -1 or futureSquare isn't found.
-						{
-							if(futureSquare->getFillColor() == sf::Color::Black) // make sure the future square is moveable
-							{
-								if(p1->getTurn())
-								{
-									if(p1->getIsHuman())
-									{
-										// first check if player is selecting the checker to jump over (must call jumpByChecker() and jumpBySquare() before moveable())
-										if(Moveable::jumpByChecker(p1->getCheckersVector(), currentSquare, futureSquare, tempSquare, currentIndex))
-										{
-											// update variables
-											currentSquare->setOccupied(false);
-											futureSquare->setOccupied(false); 
-											tempSquare->setOccupied(true);
-											// update the jumping checker's position
-											p1->getChecker(currentIndex)->setPosition(tempSquare->getPosition().x, tempSquare->getPosition().y); 
-											// check if the jumping checker became a king
-											ifCheckerKinged(p1->getChecker(currentIndex), tempSquare);
-											printChecker(p1->getChecker(currentIndex), "JUMPING");
-											// delete the jumped checker (p1's turn, so delete from p2)
-											deleteCheckerFromGame(p2, p2->findCheckerIndex(futureSquare));
-											checkDoubleJump = true; // we just completed a jump, let's see if there's a double jump available
-											changeTurn();
-											SoundManager::getSoundManager()->playSound(SOUND_JUMP_CHECKER);
-										}
-										// Check if the player is jumping by selecting the square to land on after a jump (future square in this case), temp square is in the middle
-										else if(Moveable::jumpBySquare(p1->getCheckersVector(), currentSquare, futureSquare, tempSquare, currentIndex)) 
-										{
-											// update variables after jumping
-											futureSquare->setOccupied(true);
-											currentSquare->setOccupied(false);
-											tempSquare->setOccupied(false); // the jumped checker
-											// update the jumping checker's position
-											p1->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x, futureSquare->getPosition().y); 
-											// check if the jumping checker became a king
-											ifCheckerKinged(p1->getChecker(currentIndex), futureSquare);
-											printChecker(p1->getChecker(currentIndex), "JUMPING");	
-											// delete the jumped checker (p1's turn, so delete from p2)
-											deleteCheckerFromGame(p2, p2->findCheckerIndex(tempSquare));
-											checkDoubleJump = true; // we just completed a jump, let's see if there's a double jump available
-											changeTurn();
-											SoundManager::getSoundManager()->playSound(SOUND_JUMP_SQUARE);
-										}
-										// finally check for moving w/o jump
-										else if(Moveable::moveable(p1->getCheckersVector(), currentSquare, futureSquare, currentIndex) && !futureSquare->getOccupied()) 
-										{
-											/* This hasJump call is necessary to prevent a checker that is double jumping 
-											from skipping a jump. This is because the boolean variable 'selecting' doesn't 
-											go back to true during a double jump, which is where a validation would be done 
-											to make sure that there are no pending jumps for the active checker. */
-											if(!Moveable::hasJump(p1->getChecker(currentIndex), p2->getCheckersVector(), checkerboard))
-											{
-												// updates position for all the squares and checker(s) in play
-												futureSquare->setOccupied(true);
-												currentSquare->setOccupied(false);
-												p1->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x, futureSquare->getPosition().y);
-												// check if the checker moved onto a king row
-												ifCheckerKinged(p1->getChecker(currentIndex), futureSquare);
-												printChecker(p1->getChecker(currentIndex), "MOVING");
-												checkDoubleJump = false;
-												changeTurn();
-												SoundManager::getSoundManager()->playSound(SOUND_MOVE);
-											}
-										}
+                        if (tempSquare !=
+                            nullptr) // the only way tempSquare is null is when generalDirection == -1 or futureSquare isn't found.
+                        {
+                            if (futureSquare->getFillColor() ==
+                                sf::Color::Black) // make sure the future square is moveable
+                            {
+                                if (p1->getTurn()) {
+                                    if (p1->getIsHuman()) {
+                                        // first check if player is selecting the checker to jump over (must call jumpByChecker() and jumpBySquare() before moveable())
+                                        if (Moveable::jumpByChecker(p1->getCheckersVector(), currentSquare,
+                                                                    futureSquare, tempSquare, currentIndex)) {
+                                            // update variables
+                                            currentSquare->setOccupied(false);
+                                            futureSquare->setOccupied(false);
+                                            tempSquare->setOccupied(true);
+                                            // update the jumping checker's position
+                                            p1->getChecker(currentIndex)->setPosition(tempSquare->getPosition().x,
+                                                                                      tempSquare->getPosition().y);
+                                            // check if the jumping checker became a king
+                                            ifCheckerKinged(p1->getChecker(currentIndex), tempSquare);
+                                            printChecker(p1->getChecker(currentIndex), "JUMPING");
+                                            // delete the jumped checker (p1's turn, so delete from p2)
+                                            deleteCheckerFromGame(p2, p2->findCheckerIndex(futureSquare));
+                                            checkDoubleJump = true; // we just completed a jump, let's see if there's a double jump available
+                                            changeTurn();
+                                            SoundManager::getSoundManager()->playSound(SOUND_JUMP_CHECKER);
+                                        }
+                                            // Check if the player is jumping by selecting the square to land on after a jump (future square in this case), temp square is in the middle
+                                        else if (Moveable::jumpBySquare(p1->getCheckersVector(), currentSquare,
+                                                                        futureSquare, tempSquare, currentIndex)) {
+                                            // update variables after jumping
+                                            futureSquare->setOccupied(true);
+                                            currentSquare->setOccupied(false);
+                                            tempSquare->setOccupied(false); // the jumped checker
+                                            // update the jumping checker's position
+                                            p1->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x,
+                                                                                      futureSquare->getPosition().y);
+                                            // check if the jumping checker became a king
+                                            ifCheckerKinged(p1->getChecker(currentIndex), futureSquare);
+                                            printChecker(p1->getChecker(currentIndex), "JUMPING");
+                                            // delete the jumped checker (p1's turn, so delete from p2)
+                                            deleteCheckerFromGame(p2, p2->findCheckerIndex(tempSquare));
+                                            checkDoubleJump = true; // we just completed a jump, let's see if there's a double jump available
+                                            changeTurn();
+                                            SoundManager::getSoundManager()->playSound(SOUND_JUMP_SQUARE);
+                                        }
+                                            // finally check for moving w/o jump
+                                        else if (
+                                                Moveable::moveable(p1->getCheckersVector(), currentSquare, futureSquare,
+                                                                   currentIndex) && !futureSquare->getOccupied()) {
+                                            /* This hasJump call is necessary to prevent a checker that is double jumping
+                                            from skipping a jump. This is because the boolean variable 'selecting' doesn't
+                                            go back to true during a double jump, which is where a validation would be done
+                                            to make sure that there are no pending jumps for the active checker. */
+                                            if (!Moveable::hasJump(p1->getChecker(currentIndex),
+                                                                   p2->getCheckersVector(), checkerboard)) {
+                                                // updates position for all the squares and checker(s) in play
+                                                futureSquare->setOccupied(true);
+                                                currentSquare->setOccupied(false);
+                                                p1->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x,
+                                                                                          futureSquare->getPosition().y);
+                                                // check if the checker moved onto a king row
+                                                ifCheckerKinged(p1->getChecker(currentIndex), futureSquare);
+                                                printChecker(p1->getChecker(currentIndex), "MOVING");
+                                                checkDoubleJump = false;
+                                                changeTurn();
+                                                SoundManager::getSoundManager()->playSound(SOUND_MOVE);
+                                            }
+                                        }
 
-										// Now we need to figure out if the current check can double jump (this is only checked after a successful jump)
-										if(checkDoubleJump && Moveable::hasJump(p1->getChecker(currentIndex), p2->getCheckersVector(), checkerboard))
-										{
-											// double jump available, we update the current square for the next iteration of the game loop
-											currentX = (int) p1->getChecker(currentIndex)->getPosition().x;
-											currentY = (int) p1->getChecker(currentIndex)->getPosition().y;
-											currentSquare = checkerboard->findSquare(currentX, currentY);
-											selecting = false; // technically selecting never changed, but we want to ensure that it's still false.
-											/* we need to call changeTurn() again because it was already called in the first successful jump 
-											(so effectively canceling the call altogther and thus it is still player 1's turn). */
-											changeTurn();
-											checkDoubleJump = false; // we just double jumped, so reset this to false.
-											tempSquare = nullptr; // reset this to null for the next iteration of game loop
-										}
-										else
-											selecting = true; // No double jump, turn has changed, go back to selecting
-									}
-								}
-								else // p2->getTurn()
-								{
-									if(p2->getIsHuman())
-									{
-										if(Moveable::jumpByChecker(p2->getCheckersVector(), currentSquare, futureSquare, tempSquare, currentIndex))
-										{
-											currentSquare->setOccupied(false);
-											futureSquare->setOccupied(false); 
-											tempSquare->setOccupied(true);
-											p2->getChecker(currentIndex)->setPosition(tempSquare->getPosition().x, tempSquare->getPosition().y); 
-											ifCheckerKinged(p2->getChecker(currentIndex), tempSquare);
-											printChecker(p2->getChecker(currentIndex), "JUMPING");
-											deleteCheckerFromGame(p1, p1->findCheckerIndex(futureSquare));
-											checkDoubleJump = true;
-											changeTurn();
-											SoundManager::getSoundManager()->playSound(SOUND_JUMP_CHECKER);
-										}	
-										else if(Moveable::jumpBySquare(p2->getCheckersVector(), currentSquare, futureSquare, tempSquare, currentIndex)) 
-										{
-											futureSquare->setOccupied(true);
-											currentSquare->setOccupied(false);
-											tempSquare->setOccupied(false); 
-											p2->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x, futureSquare->getPosition().y); 
-											ifCheckerKinged(p2->getChecker(currentIndex), futureSquare);
-											printChecker(p2->getChecker(currentIndex), "JUMPING");
-											deleteCheckerFromGame(p1, p1->findCheckerIndex(tempSquare));
-											checkDoubleJump = true;
-											changeTurn();
-											SoundManager::getSoundManager()->playSound(SOUND_JUMP_SQUARE);
-										}
-										else if(Moveable::moveable(p2->getCheckersVector(), currentSquare, futureSquare, currentIndex) && !futureSquare->getOccupied()) 
-										{
-											if(!Moveable::hasJump(p2->getChecker(currentIndex), p1->getCheckersVector(), checkerboard))
-											{
-												futureSquare->setOccupied(true);
-												currentSquare->setOccupied(false);
-												p2->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x, futureSquare->getPosition().y);
-												ifCheckerKinged(p2->getChecker(currentIndex), futureSquare);
-												printChecker(p2->getChecker(currentIndex), "MOVING");
-												checkDoubleJump = false;
-												changeTurn();
-												SoundManager::getSoundManager()->playSound(SOUND_MOVE);
-											}
-										}
+                                        // Now we need to figure out if the current check can double jump (this is only checked after a successful jump)
+                                        if (checkDoubleJump &&
+                                            Moveable::hasJump(p1->getChecker(currentIndex), p2->getCheckersVector(),
+                                                              checkerboard)) {
+                                            // double jump available, we update the current square for the next iteration of the game loop
+                                            currentX = (int) p1->getChecker(currentIndex)->getPosition().x;
+                                            currentY = (int) p1->getChecker(currentIndex)->getPosition().y;
+                                            currentSquare = checkerboard->findSquare(currentX, currentY);
+                                            selecting = false; // technically selecting never changed, but we want to ensure that it's still false.
+                                            /* we need to call changeTurn() again because it was already called in the first successful jump
+                                            (so effectively canceling the call altogther and thus it is still player 1's turn). */
+                                            changeTurn();
+                                            checkDoubleJump = false; // we just double jumped, so reset this to false.
+                                            tempSquare = nullptr; // reset this to null for the next iteration of game loop
+                                        } else
+                                            selecting = true; // No double jump, turn has changed, go back to selecting
+                                    }
+                                } else // p2->getTurn()
+                                {
+                                    if (p2->getIsHuman()) {
+                                        if (Moveable::jumpByChecker(p2->getCheckersVector(), currentSquare,
+                                                                    futureSquare, tempSquare, currentIndex)) {
+                                            currentSquare->setOccupied(false);
+                                            futureSquare->setOccupied(false);
+                                            tempSquare->setOccupied(true);
+                                            p2->getChecker(currentIndex)->setPosition(tempSquare->getPosition().x,
+                                                                                      tempSquare->getPosition().y);
+                                            ifCheckerKinged(p2->getChecker(currentIndex), tempSquare);
+                                            printChecker(p2->getChecker(currentIndex), "JUMPING");
+                                            deleteCheckerFromGame(p1, p1->findCheckerIndex(futureSquare));
+                                            checkDoubleJump = true;
+                                            changeTurn();
+                                            SoundManager::getSoundManager()->playSound(SOUND_JUMP_CHECKER);
+                                        } else if (Moveable::jumpBySquare(p2->getCheckersVector(), currentSquare,
+                                                                          futureSquare, tempSquare, currentIndex)) {
+                                            futureSquare->setOccupied(true);
+                                            currentSquare->setOccupied(false);
+                                            tempSquare->setOccupied(false);
+                                            p2->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x,
+                                                                                      futureSquare->getPosition().y);
+                                            ifCheckerKinged(p2->getChecker(currentIndex), futureSquare);
+                                            printChecker(p2->getChecker(currentIndex), "JUMPING");
+                                            deleteCheckerFromGame(p1, p1->findCheckerIndex(tempSquare));
+                                            checkDoubleJump = true;
+                                            changeTurn();
+                                            SoundManager::getSoundManager()->playSound(SOUND_JUMP_SQUARE);
+                                        } else if (
+                                                Moveable::moveable(p2->getCheckersVector(), currentSquare, futureSquare,
+                                                                   currentIndex) && !futureSquare->getOccupied()) {
+                                            if (!Moveable::hasJump(p2->getChecker(currentIndex),
+                                                                   p1->getCheckersVector(), checkerboard)) {
+                                                futureSquare->setOccupied(true);
+                                                currentSquare->setOccupied(false);
+                                                p2->getChecker(currentIndex)->setPosition(futureSquare->getPosition().x,
+                                                                                          futureSquare->getPosition().y);
+                                                ifCheckerKinged(p2->getChecker(currentIndex), futureSquare);
+                                                printChecker(p2->getChecker(currentIndex), "MOVING");
+                                                checkDoubleJump = false;
+                                                changeTurn();
+                                                SoundManager::getSoundManager()->playSound(SOUND_MOVE);
+                                            }
+                                        }
 
-										if(checkDoubleJump && Moveable::hasJump(p2->getChecker(currentIndex), p1->getCheckersVector(), checkerboard))
-										{
-											currentX = (int) p2->getChecker(currentIndex)->getPosition().x;
-											currentY = (int) p2->getChecker(currentIndex)->getPosition().y;
-											currentSquare = checkerboard->findSquare(currentX, currentY);
-											selecting = false;
-											changeTurn(); 
-											checkDoubleJump = false;
-											tempSquare = nullptr;
-										}
-										else
-											selecting = true;
-									}
-								} // end of p2's turn
+                                        if (checkDoubleJump &&
+                                            Moveable::hasJump(p2->getChecker(currentIndex), p1->getCheckersVector(),
+                                                              checkerboard)) {
+                                            currentX = (int) p2->getChecker(currentIndex)->getPosition().x;
+                                            currentY = (int) p2->getChecker(currentIndex)->getPosition().y;
+                                            currentSquare = checkerboard->findSquare(currentX, currentY);
+                                            selecting = false;
+                                            changeTurn();
+                                            checkDoubleJump = false;
+                                            tempSquare = nullptr;
+                                        } else
+                                            selecting = true;
+                                    }
+                                } // end of p2's turn
 /************************************************* END OF MOVEMENT VALIDATION FOR EACH PLAYER *******************************************************/
-							} // end of if(futureSquare->getColor() == sf::Color::Black)
-						} // end of if(tempSquare != nullptr)
-						else // this is equivalent to the player picking a checker to move and then changing their mind
-						{
-							// don't change the turn, but validate the current player, if they can't move any checkerpieces then they lose the game.
-							std::cout << "Changing current checker. Code executed @ line " << __LINE__ << std::endl;
-							selecting = true;
-						}
-					} // end of if(!selecting)
-				} // end of if(event.mouseButton.button == sf::Mouse::Left)
+                            } // end of if(futureSquare->getColor() == sf::Color::Black)
+                        } // end of if(tempSquare != nullptr)
+                        else // this is equivalent to the player picking a checker to move and then changing their mind
+                        {
+                            // don't change the turn, but validate the current player, if they can't move any checkerpieces then they lose the game.
+                            std::cout << "Changing current checker. Code executed @ line " << __LINE__ << std::endl;
+                            selecting = true;
+                        }
+                    } // end of if(!selecting)
+                }
 			}
 			/* Save the current mouse coords for the highlight graphic */
 			else if (event.type == sf::Event::MouseMoved)
